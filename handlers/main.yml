@@ -1,6 +1,6 @@
 ---
 # handlers file for mysql-charset
-- name: restart mysql
+- name: restart mysqld
   service:
-    name: "mysql"
+    name: "mysqld"
     state: "restarted"
