@@ -1,0 +1,14 @@
+---
+- name: Include my.cnf.d dir.
+  blockinfile:
+    path: /etc/my.cnf
+    content: |
+      !includedir /etc/my.cnf.d
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - INCLUDE CNF DIR"
+  notify: restart mysqld
+
+- name: Add MySQL charset.cnf into /etc/my.cnf.d/
+  copy:
+    src: charset.cnf
+    dest: /etc/my.cnf.d/
+  notify: restart mysqld

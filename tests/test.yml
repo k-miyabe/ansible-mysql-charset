@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  pre_tasks:
+    - name: Install MySQL.
+      yum:
+        name: "mysql"
+        state: present
+  roles:
+    - mysql-charset
